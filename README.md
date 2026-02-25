@@ -16,23 +16,23 @@ $$
 (Note: attitude quaternion represents the rotation from the body frame to the inertial frame).
 - [ ] TODO: `state.py`: contains the state data structure 
 
-## **Process Noise**: 
-- Represents the unmodeled dynamics and disturbances in the quadrotor kinematics.
-- **Covariance**: The static process noise matrix ($\mathbf{Q}$).
+## **Process Noise** 
+- **process noise**: represents the unmodeled dynamics and disturbances in the quadrotor kinematics.
+- **covariance**: The static process noise matrix ($\mathbf{Q}$).
 - [ ] TODO: `process_noise.py`: contains process noise functions 
 
-## **Measurement**: 
+## **Measurement** 
 - The sensor readings from the MEMS IMU and the Computer Vision pipeline.
 - [ ] TODO: `measurement.py`: contains the measurement data
 
-## **Measurement Noise**: 
-- Modeled as a non-stationary Gaussian process, capturing the heteroscedastic nature of high-dynamic flight:
+## **Measurement Noise** 
+- **measurement noise**: modeled as a non-stationary Gaussian process, capturing the heteroscedastic nature of high-dynamic flight:
 
 $$
 \mathbf{v}_k \sim \mathcal{N}(0, \mathbf{R}_k)
 $$
 
-**Covariance**: The instantaneous covariance $\mathbf{R}_k = g(\text{RPM}_k, \mathbf{a}_k)$ is an adaptation law estimating noise as a composite function of static properties and the dynamic flight regime:
+**covariance**: The instantaneous covariance $\mathbf{R}_k = g(\text{RPM}_k, \mathbf{a}_k)$ is an adaptation law estimating noise as a composite function of static properties and the dynamic flight regime:
 
 $$
 \mathbf{R}_k = \mathbf{R}_{\text{floor}} + \mathbf{R}_{\text{vibe}}(\Omega_k) + \mathbf{R}_{\text{load}}(\mathbf{a}_k)
