@@ -4,7 +4,7 @@ Autonomous Drone Racing (ADR) pushes quadrotor trajectories to highly stiff and 
 
 This repository implements a **Physics-Informed Adaptive Unscented Kalman Filter (AUKF)** that learns the noise environment in real-time to maintain robust state estimation during extreme maneuvers.
 
----
+
 
 ## 🛑 The Problem: The Static Tuning Trade-Off
 Traditional Unscented Kalman Filters (UKF) rely on a static Measurement Noise Covariance matrix ($R$), creating a fatal trade-off in drone racing:
@@ -30,7 +30,7 @@ $$\mathbf{R}_k = \mathbf{R}_{\text{floor}} + \mathbf{R}_{\text{vibe}}(\Omega_k) 
 2. **G-Loading Sensitivity:** Accounts for MEMS sensor non-linearities during high-acceleration maneuvers by scaling with the specific force magnitude.
    $$\mathbf{R}_{\text{load}}(\mathbf{a}_k) = \beta \cdot \|\mathbf{a}_k\| \cdot \mathbf{I}_{3 \times 3}$$
 
----
+
 
 ## 🧪 Validation & Benchmarking  
 
@@ -49,7 +49,7 @@ Replaying the **TII Drone Racing Dataset (Blackbird/UZH-FPV)** through our filte
 * **RMSE:** Root Mean Square Error for position accuracy.
 * **NEES:** Normalized Estimation Error Squared to evaluate filter consistency.
 
----
+
 
 ## 💻 Project Structure
 ```text
@@ -65,7 +65,7 @@ Replaying the **TII Drone Racing Dataset (Blackbird/UZH-FPV)** through our filte
 └── README.md
 
 
-
+```
 
 # Authors 
 - Julia Jiang - Electrical Engineering, Stanford University
