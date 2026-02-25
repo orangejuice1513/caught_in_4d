@@ -7,7 +7,7 @@
 # Models 
 
 ## **State**: 
-- The state vector $\mathbf{x} \in \mathbb{R}^{10}$ comprises position, velocity, and the attitude quaternion to avoid gimbal lock:
+The state vector $\mathbf{x} \in \mathbb{R}^{10}$ comprises position, velocity, and the attitude quaternion to avoid gimbal lock:
 
 $$
 \mathbf{x} = [\mathbf{p}^\top, \mathbf{v}^\top, \mathbf{q}^\top]^\top
@@ -17,16 +17,16 @@ $$
 - [ ] TODO: `state.py`: contains the state data structure 
 
 ## **Process Noise** 
-- **process noise**: represents the unmodeled dynamics and disturbances in the quadrotor kinematics.
-- **covariance**: The static process noise matrix ($\mathbf{Q}$).
+ **process noise**: represents the unmodeled dynamics and disturbances in the quadrotor kinematics.
+**covariance**: The static process noise matrix ($\mathbf{Q}$).
 - [ ] TODO: `process_noise.py`: contains process noise functions 
 
 ## **Measurement** 
-- The sensor readings from the MEMS IMU and the Computer Vision pipeline.
+The sensor readings from the MEMS IMU and the Computer Vision pipeline.
 - [ ] TODO: `measurement.py`: contains the measurement data
 
 ## **Measurement Noise** 
-- **measurement noise**: modeled as a non-stationary Gaussian process, capturing the heteroscedastic nature of high-dynamic flight:
+**measurement noise**: modeled as a non-stationary Gaussian process, capturing the heteroscedastic nature of high-dynamic flight:
 
 $$
 \mathbf{v}_k \sim \mathcal{N}(0, \mathbf{R}_k)
