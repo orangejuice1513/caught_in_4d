@@ -13,11 +13,11 @@
     - [ ] TODO: process_noise.py: contains process noise functions 
 - **Measurement**: The sensor readings from the MEMS IMU and the Computer Vision pipeline.
     - [ ] TODO: measurement.py: contains the measurement data
-- **Measurement Noise**: Modeled as a non-stationary Gaussian process, capturing the heteroscedastic nature of high-dynamic flight: $\mathbf{v}_k \sim \mathcal{N}(0, \mathbf{R}_k)$
-  - **Covariance**: The instantaneous covariance $\mathbf{R}_k = g(\mathrm{RPM}_k, \mathbf{a}_k)$ is an adaptation law estimating noise as a composite function of static properties and the dynamic flight regime: $\mathbf{R}_k = \mathbf{R}_{\mathrm{floor}} + \mathbf{R}_{\mathrm{vibe}}(\Omega_k) + \mathbf{R}_{\mathrm{load}}(\mathbf{a}_k)$
+- **Measurement Noise**: Modeled as a non-stationary Gaussian process, capturing the heteroscedastic nature of high-dynamic flight: $\mathbf{v}_k \sim \mathcal{N}(0, \mathbf{R}_{k})$
+  - **Covariance**: The instantaneous covariance $\mathbf{R}_k = g(\mathrm{RPM}_{k}, \mathbf{a}_{k})$ is an adaptation law estimating noise as a composite function of static properties and the dynamic flight regime: $\mathbf{R}_k = \mathbf{R}_{\mathrm{floor}} + \mathbf{R}_{\mathrm{vibe}}(\Omega_k) + \mathbf{R}_{\mathrm{load}}(\mathbf{a}_k)$
     - **RPM-Induced Vibration**: Given the rotational velocity of the four motors $\Omega_{i,k}$ (in RPM), the vibration noise injected into the IMU is modeled as proportional to the total kinetic energy of the rotors (proportional to frequency squared): $\mathbf{R}_{\mathrm{vibe}}(\Omega_k) = \alpha \cdot \mathrm{diag}( \sum_{i=1}^{4} \Omega_{i,k}^2 ) \cdot \mathbf{I}_{3 \times 3}$
       *(Where $\alpha$ is a constant coefficient characterizing the airframe's structural resonance and dampening properties).*
-    - **G-Loading Sensitivity**: To account for MEMS sensor non-linearities during high-acceleration maneuvers, the covariance scales with the magnitude of the specific force (linear acceleration) $||\mathbf{a}_k||$: $\mathbf{R}_{\mathrm{load}}(\mathbf{a}_k) = \beta \cdot ||\mathbf{a}_k|| \cdot \mathbf{I}_{3 \times 3}$
+    - **G-Loading Sensitivity**: To account for MEMS sensor non-linearities during high-acceleration maneuvers, the covariance scales with the magnitude of the specific force (linear acceleration) $||\mathbf{a}_{k}||$: $\mathbf{R}_{\mathrm{load}}(\mathbf{a}_{k}) = \beta \cdot ||\mathbf{a}_{k}|| \cdot \mathbf{I}_{3 \times 3}$
       *(Where $\beta$ is the empirical G-sensitivity coefficient of the accelerometer and gyroscope axes).*
     - [ ] TODO: measurement_noise.py: contains the structures and functions for measurement noise 
     
@@ -41,7 +41,7 @@ Task: make classes of standard ukf and adaptive ukf
     - [ ] adaptive ukf  
 
 ## Data Benchmark 
-dataset: https://github.com/tii-racing/drone-racing-dataset/releases 
+- dataset: https://github.com/tii-racing/drone-racing-dataset/releases 
     - accelerometer/gyroscope logs 
 - evaluation metrics: 
     - RMSE for position accuracy
