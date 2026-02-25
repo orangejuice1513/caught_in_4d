@@ -60,8 +60,8 @@ $$
 
 # Filter Implementation
 Task: make classes of standard ukf and adaptive ukf  
-- [ ] standard ukf 
-- [ ] adaptive ukf 
+- [ ] TODO: standard ukf 
+- [ ] TODO: adaptive ukf 
 
 
 # Validation
