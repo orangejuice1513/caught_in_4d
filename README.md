@@ -12,7 +12,7 @@ $$
 \mathbf{x} = [\mathbf{p}^\top, \mathbf{v}^\top, \mathbf{q}^\top]^\top
 $$
 
-*(Note: attitude quaternion represents the rotation from the body frame to the inertial frame).*
+(Note: attitude quaternion represents the rotation from the body frame to the inertial frame).
 - [ ] TODO: `state.py`: contains the state data structure 
 
 **Process Noise**: Represents the unmodeled dynamics and disturbances in the quadrotor kinematics.
@@ -40,7 +40,7 @@ $$
 \mathbf{R}_{\text{vibe}}(\Omega_k) = \alpha \cdot \text{diag} \left( \sum_{i=1}^{4} \Omega_{i,k}^2 \right) \cdot \mathbf{I}_{3 \times 3}
 $$
 
-*(Where $\alpha$ is a constant coefficient characterizing the airframe's structural resonance and dampening properties).*
+(Where $\alpha$ is a constant coefficient characterizing the airframe's structural resonance and dampening properties).
 
 **G-Loading Sensitivity**: To account for MEMS sensor non-linearities during high-acceleration maneuvers, the covariance scales with the magnitude of the specific force (linear acceleration) $\|\mathbf{a}_k\|$:
 
@@ -48,7 +48,7 @@ $$
 \mathbf{R}_{\text{load}}(\mathbf{a}_k) = \beta \cdot \|\mathbf{a}_k\| \cdot \mathbf{I}_{3 \times 3}
 $$
 
-*(Where $\beta$ is the empirical G-sensitivity coefficient of the accelerometer and gyroscope axes).*
+(Where $\beta$ is the empirical G-sensitivity coefficient of the accelerometer and gyroscope axes).
 
 - [ ] TODO: `measurement_noise.py`: contains the structures and functions for measurement noise 
 
@@ -72,14 +72,14 @@ Task: make classes of standard ukf and adaptive ukf
     - [ ] adaptive ukf  
 
 ## Data Benchmark 
-dataset: https://github.com/tii-racing/drone-racing-dataset/releases 
+- dataset: https://github.com/tii-racing/drone-racing-dataset/releases 
     - accelerometer/gyroscope logs 
 - evaluation metrics: 
     - RMSE for position accuracy
     - NEES for filter consistency 
 - plots 
     1. 3d trajectory comparison: 3D line plot of the track 
-        - 3 plots to generate:
+        - 4 plots to generate:
             - [ ] ground truth: perfect black line 
             - [ ] hover UKF: expect smooth but drifting wide on corners (overshoots)
             - [ ] race UKF: expect tracking corners well but noisy "jitter" on straight sections
