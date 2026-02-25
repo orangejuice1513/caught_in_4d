@@ -21,21 +21,21 @@
 
 - **Measurement Noise**: Modeled as a non-stationary Gaussian process, capturing the heteroscedastic nature of high-dynamic flight:
   
-  $$\mathbf{v}_k \sim \mathcal{N}(0, \mathbf{R}_k)$$
+  $\mathbf{v}_k \sim \mathcal{N}(0, \mathbf{R}_k)$
   
   - **Covariance**: The instantaneous covariance $\mathbf{R}_k = g(\text{RPM}_k, \mathbf{a}_k)$ is an adaptation law estimating noise as a composite function of static properties and the dynamic flight regime:
     
-    $$\mathbf{R}_k = \mathbf{R}_{\text{floor}} + \mathbf{R}_{\text{vibe}}(\Omega_k) + \mathbf{R}_{\text{load}}(\mathbf{a}_k)$$
+    $\mathbf{R}_k = \mathbf{R}_{\text{floor}} + \mathbf{R}_{\text{vibe}}(\Omega_k) + \mathbf{R}_{\text{load}}(\mathbf{a}_k)$
     
     - **RPM-Induced Vibration**: Given the rotational velocity of the four motors $\Omega_{i,k}$ (in RPM), the vibration noise injected into the IMU is modeled as proportional to the total kinetic energy of the rotors (proportional to frequency squared):
       
-      $$\mathbf{R}_{\text{vibe}}(\Omega_k) = \alpha \cdot \text{diag} \left( \sum_{i=1}^{4} \Omega_{i,k}^2 \right) \cdot \mathbf{I}_{3 \times 3}$$
+      $\mathbf{R}_{\text{vibe}}(\Omega_k) = \alpha \cdot \text{diag} \left( \sum_{i=1}^{4} \Omega_{i,k}^2 \right) \cdot \mathbf{I}_{3 \times 3}$
       
       *(Where α is a constant coefficient characterizing the airframe's structural resonance and dampening properties).*
     
     - **G-Loading Sensitivity**: To account for MEMS sensor non-linearities during high-acceleration maneuvers, the covariance scales with the magnitude of the specific force (linear acceleration) $\|\mathbf{a}_k\|$:
       
-      $$\mathbf{R}_{\text{load}}(\mathbf{a}_k) = \beta \cdot \|\mathbf{a}_k\| \cdot \mathbf{I}_{3 \times 3}$$
+      $\mathbf{R}_{\text{load}}(\mathbf{a}_k) = \beta \cdot \|\mathbf{a}_k\| \cdot \mathbf{I}_{3 \times 3}$
       
       *(Where β is the empirical G-sensitivity coefficient of the accelerometer and gyroscope axes).*
     - [ ] TODO: `measurement_noise.py`: contains the structures and functions for measurement noise 
