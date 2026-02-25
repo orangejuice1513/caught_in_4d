@@ -71,17 +71,20 @@ Task: make classes of standard ukf and adaptive ukf
         - sampled at 240 Hz 
     - VIO: simulate vision-based position update by adding latency and gaussian white noise to ground truth position (sigma = 0.05m)
         - sampled at 30Hz 
-- estimators: 
-    - [ ] hover ukf: standard ukf with low Q & R
-    - [ ] race ukf: standard ukf with static high Q & R
-    - [ ] adaptive ukf  
+    - estimators: 
+        - [ ] hover ukf: standard ukf with low Q & R
+        - [ ] race ukf: standard ukf with static high Q & R
+        - [ ] adaptive ukf  
+    - [ ] TODO: write `logger.py` that saves ground truth, filter estimate, and P matrix at each timestep from pybullet sim 
 
 ## Data Benchmark 
 - dataset: https://github.com/tii-racing/drone-racing-dataset/releases 
     - accelerometer/gyroscope logs 
 - evaluation metrics: 
     - RMSE for position accuracy
+        - [ ] TODO: write `rmse.py` in `scripts/` that compares output of UKFs(from `logger.py` to ground truth (from dataset) and computes rmse. also graph the rmse for each sim. 
     - NEES for filter consistency 
+        - [ ] TODO: write `nees.py` in `scripts/` that compares output of UKFs(from `logger.py` to ground truth (from dataset) and computes nees. also graph the rmse for each sim. 
 - plots 
     1. 3d trajectory comparison: 3D line plot of the track 
         - 4 plots to generate:
