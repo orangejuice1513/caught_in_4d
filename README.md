@@ -6,7 +6,7 @@
 
 # Models 
 
-## **State**: 
+## **State**
 The state vector $\mathbf{x} \in \mathbb{R}^{10}$ comprises position, velocity, and the attitude quaternion to avoid gimbal lock:
 
 $$
@@ -17,7 +17,7 @@ $$
 - [ ] TODO: `state.py`: contains the state data structure 
 
 ## **Process Noise** 
- **process noise**: represents the unmodeled dynamics and disturbances in the quadrotor kinematics.
+ **process noise**: represents the unmodeled dynamics and disturbances in the quadrotor kinematics. \\
 **covariance**: The static process noise matrix ($\mathbf{Q}$).
 - [ ] TODO: `process_noise.py`: contains process noise functions 
 
