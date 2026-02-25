@@ -18,6 +18,7 @@ $$
 
 ## **Process Noise** 
  **process noise**: represents the unmodeled dynamics and disturbances in the quadrotor kinematics. \
+ 
 **covariance**: The static process noise matrix ($\mathbf{Q}$).
 - [ ] TODO: `process_noise.py`: contains process noise functions 
 
