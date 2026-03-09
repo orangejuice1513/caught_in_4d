@@ -171,6 +171,8 @@ class VioConfig:
             raise ValueError("VIO latency_s must be >= 0")
 
 
+
+
 @dataclass(slots=True)
 class SensorSuiteConfig:
     imu: ImuConfig = field(default_factory=ImuConfig)
