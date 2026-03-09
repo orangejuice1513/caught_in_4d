@@ -131,7 +131,7 @@ class MotorConfig:
 class DroneConfig:
     urdf_path: str
     start_pos_w: np.ndarray = field(
-        default_factory=lambda: np.array([0.0, 0.0, 0.2], dtype=float)
+        default_factory=lambda: np.array([0.0, 0.0, 2.5], dtype=float)
     )
     start_quat_wb_xyzw: np.ndarray = field(
         default_factory=lambda: np.array([0.0, 0.0, 0.0, 1.0], dtype=float)
